@@ -23,6 +23,14 @@ If you add something to the build process, please write that down here.
 3) Executing [`hello_world.c_maker`](hello_world.c_maker/), writing its `stdout` to `hello_world.c`  
 4) Compiling and linking `hello_world.c`  
 
+### Requirements
+
+To build this, the following programs (and version) are required:
+- `python3`
+- `make`
+- `gcc` supporting *ansi-c* and *c99*
+- `sh` (should be replaced at some point)
+
 ## Markdown
 
 This uses github-flavored markdown, so to insert a line break  
