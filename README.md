@@ -10,3 +10,20 @@ I will write more here some day, but for the time being, here is the tldr:
 
 The process of building is started by running [`build.py`](./build.py).  
 This is because python is probably the most universal scripting language nowadays, so it should be the entry point.
+
+To clean, run `build.py clean`.
+
+## The *pipeline*
+
+The following is a description of exactly what happens during the build process.
+If you add something to the build process, please write that down here.
+
+1) Building [`PATH`](PATH/), a [PATH](https://esolangs.org/wiki/PATH) to c transpiler  
+2) Transpiling [`hello_world.c_maker.PATH`](hello_world.c_maker/hello_world.c_maker.PATH) to c  
+3) Executing [`hello_world.c_maker`](hello_world.c_maker/), writing its `stdout` to `hello_world.c`  
+4) Compiling and linking `hello_world.c`  
+
+## Markdown
+
+This uses github-flavored markdown, so to insert a line break  
+put two spaces at the end of a line.
