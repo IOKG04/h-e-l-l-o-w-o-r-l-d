@@ -10,7 +10,7 @@ Dependencies:
 `./build.sh`
 
 ## Clean
-./clean.sh
+`./clean.sh`
 
 ## Contributing
 1) Make sure to add necessary commands to `src/build.py` (or `src/start-build.sh`)
