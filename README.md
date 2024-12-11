@@ -54,3 +54,20 @@ Run `./build.sh shell` to start a shell in the container where `./build.sh` is r
 - Compile `hello_world`
   - `hello_world.c_maker` -> `hello_world.c` -> `hello_world`
   - See `build.py`
+
+# Contributing
+
+If you wish to contribute to this project, you're free to do so,
+just fork the repository, do your changes, open a pull request,
+and if your changes are good (they make the build time longer), we'll merge it
+
+## What to contribute, what not to
+
+What we want is not you just going
+> heh, I'll just add the `gcc` source code to this and compile that, then it'll take a couple minutes at least
+We want something more creative, something that was built *specifically* for this project, specifically to make *it* build slower
+
+## DISCLAIMER
+
+By contributing to this project, you agree to license the code you wrote for this project under the [Unlisence](LICENSE)<br/>
+Or in other words, anyone is allowed to do whatever they want with your code
