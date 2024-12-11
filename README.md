@@ -1,10 +1,29 @@
 # h-e-l-l-o-w-o-r-l-d
 
+# Setup
+Uses docker to build a container that can build this perfectly normal project
+
+# Build
+Dependencies:
+  - docker-compose
+
+`./build.sh`
+
+## Clean
+./clean.sh
+
+## Contributing
+1) Make sure to add necessary commands to `src/build.py` (or `src/start-build.sh`)
+2) Add any intermediate files to `.gitignore` and `clean.sh`
+
+# Pipeline
+- Compile a zig library into a python module
+- Building [`PATH`](PATH/), a [PATH](https://esolangs.org/wiki/PATH) to c transpiler
+- Transpiling [`hello_world.c_maker.PATH`](hello_world.c_maker/hello_world.c_maker.PATH) to c
+- Executing [`hello_world.c_maker`](hello_world.c_maker/), writing its `stdout` to `hello_world.c`
+- Compiling and linking `hello_world.c` with gcc
+
 <!--
-
-TODO(zxcv): Add docker details here
-
--->
 
 I will write more here some day, but for the time being, here is the tldr:
 - `h-e-l-l-o-w-o-r-l-d` should, when built, output a single executable which prints `Hello World!` when run
@@ -24,20 +43,9 @@ To clean, run `build.py clean`.
 The following is a description of exactly what happens during the build process.
 If you add something to the build process, please write that down here.
 
-1) Building [`PATH`](PATH/), a [PATH](https://esolangs.org/wiki/PATH) to c transpiler
-2) Transpiling [`hello_world.c_maker.PATH`](hello_world.c_maker/hello_world.c_maker.PATH) to c
-3) Executing [`hello_world.c_maker`](hello_world.c_maker/), writing its `stdout` to `hello_world.c`
-4) Compiling and linking `hello_world.c`
-
-### Requirements
-
-To build this, the following programs (and version) are required:
-- `python3`
-- `make`
-- `gcc` supporting *ansi-c* and *c99*
-- `sh` (should be replaced at some point)
-
 ## Markdown
 
 This uses github-flavored markdown, so to insert a line break
 put two spaces at the end of a line.
+
+-->
