@@ -13,6 +13,6 @@ RUN apk add bash
 RUN apk add make
 RUN apk add cmd:pip
 RUN apk add cmd:python3.12
-RUN apk add cmd:python3.12-config # Installs the package that has python3.12 headers
+RUN apk add cmd:python3.12-config # python3.12 headers
 
 WORKDIR /code

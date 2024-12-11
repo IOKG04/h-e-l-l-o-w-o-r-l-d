@@ -4,7 +4,7 @@
 if __name__ != "__main__":
     dont_import_this_script
 
-# Compiled and installed by start-build.sh
+# created by start-build.sh
 import tools
 
 tools.run("/code/", "make -C PATH")

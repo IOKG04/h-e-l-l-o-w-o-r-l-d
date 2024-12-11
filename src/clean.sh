@@ -1,21 +1,22 @@
 #!/usr/bin/bash
 
 clean() {
-    echo rm -rf $@
-    rm -rf $@
+    CMD="rm -rf $@"
+    echo $CMD
+    $CMD
 }
 
-cd src/build_tools/
+cd /code/build_tools/
 clean .zig-cache tools.* zig-out
 cd -
 
-make -C src/PATH clean
+make -C /code/PATH clean
 
-cd src/hello_world.c_maker
+cd /code/hello_world.c_maker
 clean hello_world.c_maker.c hello_world.c_maker
 cd -
 
-cd src
+cd /code/
 clean hello_world.c
 clean hello_world
 cd -

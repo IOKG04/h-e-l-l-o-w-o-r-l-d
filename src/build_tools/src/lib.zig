@@ -1,7 +1,4 @@
-const python = @cImport({
-    @cDefine("PY_SSIZE_T_CLEAN", {});
-    @cInclude("python3.12/Python.h");
-});
+const python = @import("python");
 
 const std = @import("std");
 

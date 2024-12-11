@@ -10,7 +10,6 @@ class ZigBuilder(build_ext):
             "zig",
             "build",
             "--release=" + mode,
-            "-Dname=" + ext.name,
             "--prefix",
             prefix
         ])

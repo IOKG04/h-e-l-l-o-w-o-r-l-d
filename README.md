@@ -9,12 +9,15 @@ Dependencies:
 
 `./build.sh`
 
-## Clean
-`./clean.sh`
-
 ## Contributing
 1) Make sure to add necessary commands to `src/build.py` (or `src/start-build.sh`)
-2) Add any intermediate files to `.gitignore` and `clean.sh`
+2) Add any intermediate files to `.gitignore` and `src/clean.sh`
+
+### Clean
+`./build.sh clean`
+
+### Shell (for debugging)
+`./build.sh shell`
 
 # Pipeline
 - Compile a zig library into a python module
