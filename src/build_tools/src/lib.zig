@@ -1,6 +1,5 @@
-const python = @import("python");
-
 const std = @import("std");
+const python = @import("python");
 
 const PyObject = python.PyObject;
 
