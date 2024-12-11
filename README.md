@@ -1,54 +1,45 @@
 # h-e-l-l-o-w-o-r-l-d
-
-# Setup
-Uses docker to build a container that can build this perfectly normal project
+An unnecessary-ily long build pipeline for a hello world program
 
 # Build
-Dependencies:
-  - docker-compose
+Only dependency you need is `docker-compose`<br/>
+Run `./build.sh` to build the entire pipeline
 
-`./build.sh`
-
-## Contributing
-1) Make sure to add necessary commands to `src/build.py` (or `src/start-build.sh`)
-2) Add any intermediate files to `.gitignore` and `src/clean.sh`
-
-### Clean
+## Clean
 `./build.sh clean`
 
-### Shell (for debugging)
+## Shell (for debugging)
 `./build.sh shell`
 
-# Pipeline
-- Compile a zig library into a python module
-- Building [`PATH`](PATH/), a [PATH](https://esolangs.org/wiki/PATH) to c transpiler
-- Transpiling [`hello_world.c_maker.PATH`](hello_world.c_maker/hello_world.c_maker.PATH) to c
-- Executing [`hello_world.c_maker`](hello_world.c_maker/), writing its `stdout` to `hello_world.c`
-- Compiling and linking `hello_world.c` with gcc
+# Contributing
+1) Make sure to add necessary commands to `src/build.py` (or `src/start-build.sh`)
+2) Add any intermediate files to `.gitignore` and `src/clean.sh`
+3) Keep documentation up to date (mainly this README.md)
 
-<!--
+# Setup
 
-I will write more here some day, but for the time being, here is the tldr:
-- `h-e-l-l-o-w-o-r-l-d` should, when built, output a single executable which prints `Hello World!` when run
-- `h-e-l-l-o-w-o-r-l-d` should take as long as possible to build
-- Time added to the build process by non-deterministic effects (like random number generation or installing files from the internet)
-  is not counted towards the build time
+## Tools
+<!-- Add an entry here for every sub project -->
+- `build_tools`: Zig library that gets compiled into a python module; used in `src/build.py` to execute bash statements
+- `PATH`: C executable that transpiles [PATH](https://esolangs.org/wiki/PATH) to C
+- `hello_world.c_maker`: PATH file that, when transpiled to c and compiled, will make the final `hello_world.c`
 
-## Current setup
+## Pipeline
+<!-- Add an entry here for every step in the build process -->
+- Build `tools` python module
+  - `src/build_tools`
+  - See `start-build.sh`
 
-The process of building is started by running [`build.py`](./build.py).
-This is because python is probably the most universal scripting language nowadays, so it should be the entry point.
+- Compile PATH to C transpiler
+  - `src/PATH`
+  - See `build.py`, `src/PATH/Makefile`
 
-To clean, run `build.py clean`.
+- Compile `hello_world.c_maker`
+  - `src/hello_world.c_maker`
+  - `hello_world.c_maker.PATH` -> `hello_world.c_maker.c` -> `hello_world.c_maker`
+  - Uses PATH to C transpiler
+  - See `build.py`, `src/hello_world.c_maker/build.sh`
 
-## The *pipeline*
-
-The following is a description of exactly what happens during the build process.
-If you add something to the build process, please write that down here.
-
-## Markdown
-
-This uses github-flavored markdown, so to insert a line break
-put two spaces at the end of a line.
-
--->
+- Compile `hello_world`
+  - `hello_world.c_maker` -> `hello_world.c` -> `hello_world`
+  - See `build.py`
