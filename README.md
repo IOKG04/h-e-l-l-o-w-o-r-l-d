@@ -19,12 +19,6 @@ Run `./build.sh run` to run the `hello_world` executable created by `./build.sh`
 
 Run `./build.sh shell` to start a shell in the container where `./build.sh` is run
 
-# Contributing
-
-1) Make sure to add necessary commands to `src/build.py` (or `src/start-build.sh`)
-2) Add any intermediate files to `.gitignore` and `src/clean.sh`
-3) Keep documentation up to date (mainly this README.md)
-
 # Setup
 
 ## Tools
@@ -60,6 +54,11 @@ Run `./build.sh shell` to start a shell in the container where `./build.sh` is r
 If you wish to contribute to this project, you're free to do so,
 just fork the repository, do your changes, open a pull request,
 and if your changes are good (they make the build time longer), we'll merge it
+
+Also please make sure to do the following<br/>
+1) Add necessary commands to `src/build.py` (or `src/start-build.sh`)
+2) Add any intermediate files to `.gitignore` and `src/clean.sh`
+3) Keep documentation up to date (mainly this [README.md](README.md))
 
 ## What to contribute, what not to
 
