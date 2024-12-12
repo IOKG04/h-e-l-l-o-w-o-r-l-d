@@ -12,7 +12,11 @@ fi
 echo "[*] Building container"
 echo ""
 
-docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)"
+if [ "$1" == "SILENTIO" ]; then # a thing because of server_test.sh, which would prefer only the needed output
+    docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)" > /dev/null 2> /dev/null
+else
+    docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)"
+fi
 
 echo ""
 echo "[*] Running container"
