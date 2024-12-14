@@ -19,8 +19,8 @@ jobs:
           sudo apt-get install -y docker-compose
       - name: Build and record time
         run: |
-          sudo bash server_test.sh
-      - name: Print results to stdout just so I don't have to install and unzip it every time to test stuff...
+          sudo bash github_runner.sh
+      - name: Print results to log
         run: |
           cat results.md
       - name: Upload results
