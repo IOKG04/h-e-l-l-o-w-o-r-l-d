@@ -20,13 +20,13 @@ fi
 # Not user-facing, meant for github actions
 if [ "$1" == "NO_LOG" ]; then
     LOG_LEVEL="0"
-    DC_EXTRA_FLAGS=" 2>&1 > /dev/null"
+    DC_EXTRA_FLAGS="--quiet"
 fi
 
 log "[*] Building container"
 log ""
 
-bash -c "docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)" $DC_EXTRA_FLAGS"
+docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)" $DC_EXTRA_FLAGS
 
 log ""
 log "[*] Running container"
