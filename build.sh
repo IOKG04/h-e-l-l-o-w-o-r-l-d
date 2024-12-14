@@ -26,7 +26,7 @@ fi
 log "[*] Building container"
 log ""
 
-docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)" $DC_EXTRA_FLAGS
+bash -c "docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)" $DC_EXTRA_FLAGS"
 
 log ""
 log "[*] Running container"
