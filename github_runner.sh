@@ -8,15 +8,17 @@ touch "$out"
 
 # build
 echo "Running build.sh"
-build_outp=$(script -q -c "./build.sh NO_LOG" /dev/null)
+build_out=$(script -q -c "./build.sh NO_LOG" /dev/null |\
+    sed -E 's/\x1b\[([?;0-9]+)?[a-zA-Z]//g' |\
+    sed -E 's/.\x08//g')
 
 # print data to out
 echo "Writing to $out"
-echo "# Times"                                          >> "$out"
-echo '```'                                              >> "$out"
-echo "$build_outp" | tail -n 3                          >> "$out"
-echo '```'                                              >> "$out"
-echo "# Output"                                         >> "$out"
-echo '```'                                              >> "$out"
-echo "$build_outp" | sed 's/\x1b\[[?;0-9][a-zA-Z]//g'   >> "$out"
-echo '```'                                              >> "$out"
+echo "# Times"                  >> "$out"
+echo '```'                      >> "$out"
+echo "$build_out" | tail -n 3   >> "$out"
+echo '```'                      >> "$out"
+echo "# Output"                 >> "$out"
+echo '```'                      >> "$out"
+echo "$build_out"               >> "$out"
+echo '```'                      >> "$out"
