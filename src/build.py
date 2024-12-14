@@ -7,7 +7,7 @@ if __name__ != "__main__":
 # created by start-build.sh
 import tools
 
-tools.run("/code/", "make -C PATH")
+tools.run("/code/PATH", "make")
 tools.run("/code/hello_world.c_maker/", "./build.sh")
 tools.run("/code/hello_world.c_maker/", "./hello_world.c_maker > /code/hello_world.c")
 tools.run("/code/", "gcc -o hello_world hello_world.c -ansi -O3")
