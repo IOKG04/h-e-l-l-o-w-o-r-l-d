@@ -20,7 +20,7 @@ fi
 # Not user-facing, meant for github actions
 if [ "$1" == "NO_LOG" ]; then
     LOG_LEVEL="0"
-    DC_EXTRA_FLAGS="-q"
+    DC_EXTRA_FLAGS=" 2>&1 > /dev/null"
 fi
 
 log "[*] Building container"
