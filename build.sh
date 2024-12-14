@@ -1,5 +1,11 @@
 #!/usr/bin/bash
 
+log() {
+    if [ -z "$QUIET_LOG" ]; then
+        echo $@
+    fi
+}
+
 if [ "$1" == "help" ]; then
     echo "$0        | Build h-e-l-l-o-w-o-r-l-d"
     echo "$0 clean  | Remove all build related files"
@@ -9,18 +15,17 @@ if [ "$1" == "help" ]; then
     exit
 fi
 
-echo "[*] Building container"
-echo ""
+if [ -z "$DONT_BUILD_CONTAINER" ]; then
+    log "[*] Building container"
+    log ""
 
-if [ "$1" == "SILENTIO" ]; then # a thing because of server_test.sh, which would prefer only the needed output
-    docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)" > /dev/null 2> /dev/null
-else
     docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)"
+
+    log ""
 fi
 
-echo ""
-echo "[*] Running container"
-echo ""
+log "[*] Running container"
+log ""
 
 CONTAINER_EXEC="time bash /code/start-build.sh"
 if [ "$1" == "shell" ]; then CONTAINER_EXEC="bash"; fi
