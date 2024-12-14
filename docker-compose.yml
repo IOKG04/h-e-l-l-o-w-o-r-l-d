@@ -1,5 +1,7 @@
 services:
   builder:
     build: .
+    logging:
+      driver: local
     volumes:
       - ./src:/code
