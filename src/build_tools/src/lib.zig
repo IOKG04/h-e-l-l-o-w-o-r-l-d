@@ -30,28 +30,38 @@ fn py_run(self: [*c]PyObject, args: [*c]PyObject) callconv(.C) [*]PyObject {
     var argv = alloc.alloc([]const u8, 3) catch unreachable;
     defer alloc.free(argv);
     argv[0] = "bash";
-    argv[1] = "-c";
+    argv[1] = "-ec";
     argv[2] = std.fmt.allocPrint(alloc, "cd {s} ; {s}", .{ cwd, command }) catch unreachable;
     defer alloc.free(argv[2]);
 
-    std.debug.print("### Running '{s}'\n", .{command});
+    std.debug.print("\n### Running '{s}' in '{s}' ###\n", .{ command, cwd });
 
     var child = std.process.Child.init(argv, alloc);
     const term = child.spawnAndWait() catch python.Py_FatalError("Child died unexpectedly");
 
     switch (term) {
-        .Exited => {},
-        else => std.debug.print("### '{s}' failed\n", .{command}),
+        .Exited => |res| if (res != 0) {
+            std.debug.print("### ! '{s}' failed with {d} ! ###\n\n", .{ command, res });
+            python.Py_FatalError("Child command failed");
+        },
+        .Signal => |signal| {
+            std.debug.print("### ! '{s}' caught signal {d} ! ###\n\n", .{ command, signal });
+            python.Py_FatalError("Child command failed");
+        },
+        .Stopped, .Unknown => |res| {
+            std.debug.print("### ! '{s}' failed in a weird way with {d} ! ###\n\n", .{ command, res });
+            python.Py_FatalError("Child command failed");
+        },
     }
 
     return python.Py_BuildValue("");
 }
 
 const sentinel_method = python.PyMethodDef{
-    .ml_doc = null,
     .ml_name = null,
-    .ml_flags = 0,
     .ml_meth = null,
+    .ml_flags = 0,
+    .ml_doc = null,
 };
 
 var methods = [_:sentinel_method]python.PyMethodDef{
