@@ -6,9 +6,15 @@ out="results.md"
 rm -f "$out"
 touch "$out"
 
+# build container manually so the build output doesnt show up in $out
+# because for some reason despite adding --quiet it still logs in GA :/
+echo "Building container"
+docker-compose build --quiet
+
 # build
 echo "Running build.sh"
-build_out=$(script -q -c "./build.sh NO_LOG" /dev/null |\
+build_cmd='DONT_BUILD_CONTAINER=1 QUIET_LOG=1 ./build.sh'
+build_out=$(script -q -c "$build_cmd" /dev/null |\
     sed -E 's/\x1b\[([?;0-9]+)?[a-zA-Z]//g' |\
     sed -E 's/.\x08//g')
 

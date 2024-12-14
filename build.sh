@@ -1,9 +1,7 @@
 #!/usr/bin/bash
 
-LOG_LEVEL="1"
-
 log() {
-    if [ "$LOG_LEVEL" == "1" ]; then
+    if [ -z "$QUIET_LOG" ]; then
         echo $@
     fi
 }
@@ -17,18 +15,15 @@ if [ "$1" == "help" ]; then
     exit
 fi
 
-# Not user-facing, meant for github actions
-if [ "$1" == "NO_LOG" ]; then
-    LOG_LEVEL="0"
-    DC_EXTRA_FLAGS="--quiet"
+if [ -z "$DONT_BUILD_CONTAINER" ]; then
+    log "[*] Building container"
+    log ""
+
+    docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)"
+
+    log ""
 fi
 
-log "[*] Building container"
-log ""
-
-docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)" $DC_EXTRA_FLAGS
-
-log ""
 log "[*] Running container"
 log ""
 
