@@ -24,30 +24,34 @@ Run `./build.sh shell` to start a shell in the container where `./build.sh` is r
 ## Tools
 
 <!-- Add an entry here for every sub project -->
-- `build_tools`: Zig library that gets compiled into a python module; used in `src/build.py` to execute bash statements
+- `generate_build_py`: JS script to generate build.py based on a jsonc file
+- `build_tools`: Zig library that gets compiled into a python module; used in the `build.py` to execute bash statements
 - `PATH`: C executable that transpiles [PATH](https://esolangs.org/wiki/PATH) to C
 - `hello_world.c_maker`: PATH file that, when transpiled to c and compiled, will make the final `hello_world.c`
 
 ## Pipeline
 
 <!-- Add an entry here for every step in the build process -->
+- Generate `build.py`
+  - `src/generate_build_py`
+  - See `build_steps.jsonc`, `build_template.py`, and `start-build.sh`
+
 - Build `tools` python module
   - `src/build_tools`
   - See `start-build.sh`
 
 - Compile PATH to C transpiler
   - `src/PATH`
-  - See `build.py`, `src/PATH/Makefile`
+  - See `src/PATH/Makefile`
 
 - Compile `hello_world.c_maker`
   - `src/hello_world.c_maker`
   - `hello_world.c_maker.PATH` -> `hello_world.c_maker.c` -> `hello_world.c_maker`
   - Uses PATH to C transpiler
-  - See `build.py`, `src/hello_world.c_maker/build.sh`
+  - See `src/hello_world.c_maker/build.sh`
 
 - Compile `hello_world`
   - `hello_world.c_maker` -> `hello_world.c` -> `hello_world`
-  - See `build.py`
 
 # Contributing
 
@@ -56,7 +60,7 @@ just fork the repository, do your changes, open a pull request,
 and if your changes are good (they make the build time longer), we'll merge it
 
 Also please make sure to do the following<br/>
-1) Add necessary commands to `src/build.py` (or `src/start-build.sh`)
+1) Add necessary commands to `src/build_steps.jsonc` (or `src/start-build.sh`)
 2) Add any intermediate files to `.gitignore` and `src/clean.sh`
 3) Keep documentation up to date (mainly this [README.md](README.md))
 
