@@ -1,4 +1,4 @@
-FROM alpine:3.21
+FROM alpine:latest
 
 ARG COMMIT=unknown
 LABEL commit=$COMMIT
@@ -12,7 +12,12 @@ RUN apk add zig
 RUN apk add bash
 RUN apk add make
 RUN apk add cmd:pip
+RUN apk add cmd:deno
 RUN apk add cmd:python3.12
 RUN apk add cmd:python3.12-config # python3.12 headers
+
+RUN pip install --break-system-packages --root-user-action ignore setuptools
+
+RUN deno install jsr:@std/jsonc@^1.0.1
 
 WORKDIR /code
