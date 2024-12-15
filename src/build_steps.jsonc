@@ -1,0 +1,24 @@
+//
+// These steps are executed in order
+//
+// Format:
+// { "cmd": "COMMAND TO EXECUTE", "cwd": "WORKING DIRECTORY TO EXECUTE IN" }
+//
+[
+  {
+    "cmd": "make",
+    "cwd": "/code/PATH/",
+  },
+  {
+    "cmd": "./build.sh",
+    "cwd": "/code/hello_world.c_maker/",
+  },
+  {
+    "cmd": "./hello_world.c_maker > /code/hello_world.c",
+    "cwd": "/code/hello_world.c_maker/",
+  },
+  {
+    "cmd": "gcc -o hello_world hello_world.c -ansi -O3",
+    "cwd": "/code/",
+  },
+]
