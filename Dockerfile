@@ -16,8 +16,6 @@ RUN apk add cmd:deno
 RUN apk add cmd:python3.12
 RUN apk add cmd:python3.12-config # python3.12 headers
 
-RUN pip install --break-system-packages --root-user-action ignore setuptools
-
 RUN deno install jsr:@std/jsonc@^1.0.1
 
 WORKDIR /code
