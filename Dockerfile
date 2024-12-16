@@ -1,8 +1,5 @@
 FROM alpine:latest
 
-ARG COMMIT=unknown
-LABEL commit=$COMMIT
-
 RUN echo "@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 RUN echo "@community https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 

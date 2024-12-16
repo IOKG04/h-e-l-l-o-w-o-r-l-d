@@ -10,7 +10,7 @@ if [ -z "$DONT_BUILD_CONTAINER" ]; then
     log "[*] Building container"
     log ""
 
-    docker-compose build --build-arg COMMIT="$(git log -1 --format=%h)"
+    docker-compose build
 
     log ""
 fi
