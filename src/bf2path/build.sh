@@ -9,6 +9,6 @@ elif [ "$1" = "clean" ]; then
     rm -f bf2path
 else
     echo "Building bf2path"
-    nim compile main.nim
+    nim compile --opt:size main.nim
     mv main bf2path
 fi
