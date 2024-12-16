@@ -18,8 +18,12 @@ cd /code/PATH
 make clean
 cd -
 
+cd /code/bf2path
+./build.sh clean
+cd -
+
 cd /code/hello_world.c_maker
-clean hello_world.c_maker.c hello_world.c_maker
+clean hello_world.c_maker.PATH hello_world.c_maker.c hello_world.c_maker
 cd -
 
 cd /code/

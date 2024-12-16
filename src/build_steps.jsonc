@@ -11,6 +11,10 @@
   },
   {
     "cmd": "./build.sh",
+    "cwd": "/code/bf2path/",
+  },
+  {
+    "cmd": "./build.sh",
     "cwd": "/code/hello_world.c_maker/",
   },
   {
