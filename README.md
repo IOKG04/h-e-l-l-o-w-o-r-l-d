@@ -34,11 +34,15 @@ Run `./build.sh shell` to start a shell in the container where `./build.sh` is r
 <!-- Add an entry here for every step in the build process -->
 - Generate `build.py`
   - `src/generate_build_py`
-  - See `build_steps.jsonc`, `build_template.py`, and `start-build.sh`
+  - See `src/build_steps.jsonc`, `src/build_template.py`, and `src/start-build.sh`
 
 - Build `tools` python module
   - `src/build_tools`
-  - See `start-build.sh`
+  - See `src/start-build.sh`
+
+- Compile brainfuck to PATH transpiler
+  - `src/bf2path`
+  - See `src/bf2path/build.sh`
 
 - Compile PATH to C transpiler
   - `src/PATH`

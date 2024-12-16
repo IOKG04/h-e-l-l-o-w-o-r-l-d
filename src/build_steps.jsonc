@@ -6,6 +6,10 @@
 //
 [
   {
+    "cmd": "./build.sh",
+    "cwd": "/code/bf2path/",
+  },
+  {
     "cmd": "make",
     "cwd": "/code/PATH/",
   },
