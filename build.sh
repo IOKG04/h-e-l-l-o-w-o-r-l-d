@@ -27,7 +27,7 @@ fi
 log "[*] Running container"
 log ""
 
-CONTAINER_EXEC="time bash /code/start-build.sh"
+CONTAINER_EXEC="time bash -e /code/start-build.sh"
 if [ "$1" == "shell" ]; then CONTAINER_EXEC="bash"; fi
 if [ "$1" == "clean" ]; then CONTAINER_EXEC="bash /code/clean.sh"; fi
 if [ "$1" == "run"   ]; then CONTAINER_EXEC="bash /code/run.sh"; fi
