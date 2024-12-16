@@ -30,7 +30,6 @@ async function verify_file_path(path) {
   if (stat.size == 0) error(`"${path}" is empty. Did you mean to pass that?`);
 }
 
-await verify_file_path(build_py_path);
 await verify_file_path(step_defs_path);
 await verify_file_path(py_template_path);
 
