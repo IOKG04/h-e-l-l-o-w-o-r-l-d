@@ -1,9 +1,9 @@
 # bf2path
 
-Brainfuck is.. *okay if I need to explain to you what brainfuck is you shouldn't be here...*<br/>
-You should be [here](https://www.youtube.com/watch?v=dxJpGVaCAyU)
+Brainfuck is a well known esoteric programming language.<br/>
+Information about it can be found here: https://esolangs.org/wiki/brainfuck
 
-Anyway now that you're back, this is a transpiler from brainfuck to PATH (about which you can read more [here](../PATH/README.md))
+This is a transpiler from brainfuck to PATH (about which you can read more [here](../PATH/README.md))
 
 ## Why nim?
 

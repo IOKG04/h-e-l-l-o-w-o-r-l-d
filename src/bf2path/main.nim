@@ -6,7 +6,7 @@ from strutils import join
 if paramCount() < 2:
     echo("Usage:")
     echo(" ", paramStr(0), " [in] [out]  | Convert [file] to brainfuck, write to [out]")
-    quit(QuitSuccess)
+    quit(QuitFailure)
 
 # read and filter [in]
 let bfCode_raw: string = readFile(paramStr(1))
