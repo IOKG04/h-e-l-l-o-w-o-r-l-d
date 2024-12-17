@@ -27,7 +27,7 @@ clean hello_world.c_maker.PATH hello_world.c_maker.c hello_world.c_maker
 cd -
 
 cd /code/
-clean build.py
+clean generated_build.py
 clean hello_world.c
 clean hello_world
 cd -
