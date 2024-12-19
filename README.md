@@ -75,6 +75,17 @@ What we want is not you just going
 
 We want something more creative, something that was built *specifically* for this project, specifically to make *it* build slower
 
+## How to add dependencies
+
+If you need a specific program for your contribution to work, add it to the Dockerfile.
+
+This should be doable by getting it through `apk add`,
+provided the program you need is in the [alpine linux package list](https://pkgs.alpinelinux.org/packages).<br/>
+If that is not the case, please add commands to manually build the dependency in `setup-docker-image.sh`.
+
+*Dependency* in this case refers to an *external* program - one that was not coded for h-e-l-l-o-w-o-r-l-d.
+Any program you (or someone else) created for this may (and should) be built at build time, not setup time.
+
 ## DISCLAIMER
 
 By contributing to this project, you agree to license the code you wrote for this project under the [Unlisence](LICENSE)<br/>
