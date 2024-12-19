@@ -17,4 +17,7 @@ RUN apk add cmd:python3.12-config # python3.12 headers
 
 RUN deno install jsr:@std/jsonc@^1.0.1
 
+COPY setup-docker-image.sh /setup.sh
+RUN bash /setup.sh
+
 WORKDIR /code
